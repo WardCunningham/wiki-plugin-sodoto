@@ -1,0 +1,64 @@
+{
+  "title": "About SODOTO Plugin",
+  "story": [
+    {
+      "type": "paragraph",
+      "id": "0434917af92c7eae",
+      "text": "Track the debts owed to \"pay it forward\" following the \"see one, do one, teach one\" practice."
+    },
+    {
+      "type": "sodoto",
+      "id": "3d891776cd5be3a9",
+      "text": "Create a new wiki plugin."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "About SODOTO Plugin",
+        "story": []
+      },
+      "date": 1748542784816
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "0434917af92c7eae"
+      },
+      "id": "0434917af92c7eae",
+      "type": "add",
+      "date": 1748542802541
+    },
+    {
+      "type": "edit",
+      "id": "0434917af92c7eae",
+      "item": {
+        "type": "paragraph",
+        "id": "0434917af92c7eae",
+        "text": "Track the debts owed to \"pay it forward\" following the \"see one, do one, teach one\" practice."
+      },
+      "date": 1748542878421
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "3d891776cd5be3a9"
+      },
+      "id": "3d891776cd5be3a9",
+      "type": "add",
+      "after": "0434917af92c7eae",
+      "date": 1748542885273
+    },
+    {
+      "type": "edit",
+      "id": "3d891776cd5be3a9",
+      "item": {
+        "type": "sodoto",
+        "id": "3d891776cd5be3a9",
+        "text": "Create a new wiki plugin."
+      },
+      "date": 1748542917834
+    }
+  ]
+}
