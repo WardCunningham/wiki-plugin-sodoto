@@ -1,0 +1,30 @@
+{
+  "name": "wiki-plugin-sodoto",
+  "version": "0.1.0",
+  "description": "Add description here.",
+  "keywords": [
+    "wiki",
+    "federated wiki",
+    "plugin"
+  ],
+  "scripts": {
+    "build": "npm run clean; npm run test; node --no-warnings scripts/build-client.js",
+    "clean": "rm client/sodoto.js client/sodoto.js.map",
+    "prettier:format": "prettier --write './**/*.js'",
+    "prettier:check": "prettier --check ./**/*.js",
+    "test": "node --test"
+  },
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.x"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "esbuild": "^0.25.5",
+    "eslint": "^9.27.0",
+    "globals": "^16.2.0",
+    "prettier": "^3.5.3"
+  }
+}
