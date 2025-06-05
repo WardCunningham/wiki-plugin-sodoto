@@ -17,40 +17,45 @@ const localize = ($item,item) => {
   return {$item, item, owner, page, lesson}  
 }
 
-const score = checks => {
-  return `<div>
+const score = (site,selected) => {
+  return `<span data-site="${site}">
     <input type=checkbox name=see>
     <label for=see> seen </label>
     <input type=checkbox name=do>
     <label for=do> done </label>
     <input type=checkbox name=teach>
     <label for=teach> taught </label>
-  </div>`
+  </span>`
 }
 
 const todo = context => {
   const slug = wiki.asSlug(context.page.title)
-  console.log(Object.entries(wiki.neighborhoodObject.sites))
   const have = Object.entries(wiki.neighborhoodObject.sites)
     .filter(([domain, site]) => !site.sitemapRequestInflight && site.sitemap)
     .filter(([domain, site]) => site.sitemap.find(info => info.slug == slug))
     .map(([domain, site]) => domain)
     .filter(domain => domain != context.owner)
-  console.log({have})
-  return have
-    .map(domain => `
-      <br><img width=16px src="//${domain}/favicon.png"> ${domain}
-      <br>${score(0)}`)
-    .join("")
+  const details = have.map(site => `
+    &nbsp; <img class='remote' src='${wiki.site(site).flag()}'
+    title='${site}' data-site="${site}" data-slug="${slug}">
+    ${score(site,[])}`).join("<br>")
+  return have.length
+    ? `<details><summary>${have.length} students</summary>
+      ${details}
+      </details>`
+    : ""
 }
 
 const emit = ($item, item) => {
   const context = localize($item,item)
-  console.log(context)
+  const teacher = context.teacher
+  let confs = null
+  if(teacher) confs = wiki.site(teacher).get(asSlug(item.title)).story.find(each => each.id==item.id)
+  console.log({context,confs})
   return $item.append(`
     <div style="background-color:#eee;padding:15px;">
       <b>${expand(context.lesson)}</b><br>
-      ${score(0)}
+      ${score('me',[])}
       ${todo(context)}
     </div>`)
 }
@@ -63,6 +68,20 @@ const bind = ($item, item) => {
   $('body').on('new-neighbor-done', (e, site) => {
     $item.empty()
     emit($item, item)
+    bind($item,item)
+  })
+  $item.on('change', event => {
+    event.preventDefault()
+    event.stopPropagation()
+    const target = event.target
+    const name = target.name
+    const active = target.checked
+    const disabled = target.disabled
+    // const site = target.closest('span').dataset.site
+    const span = target.closest('span')
+    const site = span.dataset.site
+    console.log({event,target,name,active,disabled,span,site})
+    return true
   })
 }
 
