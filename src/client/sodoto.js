@@ -1,16 +1,13 @@
 const expand = text => {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
+  return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 }
 
 const emit = async ($item, item) => {
-
-  const sodotoBDO = await fetch(`/plugin/sodoto/view`).then(res => res.json())
+  // throw new Error ("Can you hear me now?")
+  const res = await fetch(`/plugin/sodoto/view`)
   return $item.append(`
     <div style="background-color:#eee;padding:15px;">
-      ${sodotoBDO.bdo.svg}
+      ${res.ok ? (await res.json()).bdo.svg : res.statusText + '<br>' + (await res.text())}
     </div>`)
 }
 

@@ -6,7 +6,6 @@ import fsp from 'node:fs/promises'
 import path from 'node:path'
 import bdo from 'bdo-js'
 
-
 const startServer = async function (params) {
   const { app, argv } = params
 
@@ -45,20 +44,19 @@ const startServer = async function (params) {
     return next()
   }
 
-
   app.get('/plugin/sodoto/view', farm, owner, async function (req, res) {
     const e500 = msg => res.status(500).send(msg)
 
     const hash = ``
     const newBDO = {}
-    let keys;
-    const saveKeys = (k) => keys = k;
-    const getKeys = () => keys;
-    const uuid = await bdo.createUser(hash, newBDO, saveKeys, getKeys);
-    const sodotoBDO = await bdo.getBDO(uuid, hash, '0211749ad18cc9ca022ce8bf101b4e8769461dcdc399e65d0fb78625047d36f15a');
+    let keys
+    const saveKeys = k => (keys = k)
+    const getKeys = () => keys
+    const uuid = await bdo.createUser(hash, newBDO, saveKeys, getKeys)
+    const sodotoBDO = await bdo.getBDO(uuid, hash, '0211749ad18cc9ca022ce8bf101b4e8769461dcdc399e65d0fb78625047d36f15a')
+    console.log({ sodotoBDO })
     return res.json(sodotoBDO)
   })
-
 }
 
 export { startServer }
