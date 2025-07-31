@@ -4,7 +4,15 @@ const expand = text => {
 
 const emit = async ($item, item) => {
   // throw new Error ("Can you hear me now?")
-  const res = await fetch(`/plugin/sodoto/view`)
+
+  const payload = {
+    item:{
+      text:item.text,
+      id:item.id
+    }
+  }
+
+  const res = await fetch(`/plugin/sodoto/view?payload=${btoa(JSON.stringify(payload))}`)
   return $item.append(`
     <div style="background-color:#eee;padding:15px;">
       ${res.ok ? (await res.json()).bdo.svg : res.statusText + '<br>' + (await res.text())}

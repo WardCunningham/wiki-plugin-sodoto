@@ -47,6 +47,9 @@ const startServer = async function (params) {
   app.get('/plugin/sodoto/view', farm, owner, async function (req, res) {
     const e500 = msg => res.status(500).send(msg)
 
+    const payload = JSON.parse(atob(req.query.payload))
+    console.log(payload.item)
+
     const hash = ``
     const newBDO = {}
     let keys
