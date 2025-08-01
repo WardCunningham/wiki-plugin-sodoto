@@ -5,8 +5,15 @@ const expand = text => {
 const emit = async ($item, item) => {
   // throw new Error ("Can you hear me now?")
 
+  const $page = $item.parents('.page')
+  const site = $page.data('site') || location.hostname
+  // const page = $page.data('data')
+  const page = wiki.lineup.atKey($page.get(0).dataset.key).getRawPage()
+
   const payload = {
     item:{
+      site,
+      title:page.title,
       text:item.text,
       id:item.id
     }

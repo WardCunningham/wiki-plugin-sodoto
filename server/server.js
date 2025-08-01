@@ -50,6 +50,13 @@ const startServer = async function (params) {
     const payload = JSON.parse(atob(req.query.payload))
     console.log(payload.item)
 
+    const secrets = `${argv.status}/secrets/sodoto`
+    const bdokeys = await fsp.readFile(`${secrets}/keys.json`,{encoding:'utf8'})
+      .then(file => JSON.parse(file))
+    console.log(bdokeys)
+    const {privateKey,pubKey} = bdokeys.bdo
+
+
     const hash = ``
     const newBDO = {}
     let keys
@@ -60,6 +67,12 @@ const startServer = async function (params) {
     console.log({ sodotoBDO })
     return res.json(sodotoBDO)
   })
+
+  // app.post('/plugin/sodoto/update', farm, owner, async function (req, res) {
+  //   const payload = req.body
+  //   const updatedBDO = await bdo.updateBDO(uuid, hash, payload)
+  //   return res.json(updatedBDO)
+  // }
 }
 
 export { startServer }
