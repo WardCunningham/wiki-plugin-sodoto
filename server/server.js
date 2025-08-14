@@ -48,7 +48,8 @@ const startServer = async function (params) {
     const e500 = msg => res.status(500).send(msg)
 
     const payload = JSON.parse(atob(req.query.payload))
-    console.log(payload.item)
+    payload.keys = payload.item.text.split(/\n/).filter(line => line.match(/^[0-9a-fA-F]+$/))
+    console.log({payload})
 
     const secrets = `${argv.status}/secrets/sodoto`
     const bdokeys = await fsp.readFile(`${secrets}/keys.json`,{encoding:'utf8'})
@@ -56,14 +57,15 @@ const startServer = async function (params) {
     console.log(bdokeys)
     const {privateKey,pubKey} = bdokeys.bdo
 
-
     const hash = ``
     const newBDO = {}
-    let keys
-    const saveKeys = k => (keys = k)
-    const getKeys = () => keys
+    const saveKeys = k => null
+    let getKeys = () => bdokeys.bdo
     const uuid = await bdo.createUser(hash, newBDO, saveKeys, getKeys)
-    const sodotoBDO = await bdo.getBDO(uuid, hash, '0211749ad18cc9ca022ce8bf101b4e8769461dcdc399e65d0fb78625047d36f15a')
+
+    const defaultkey = '0211749ad18cc9ca022ce8bf101b4e8769461dcdc399e65d0fb78625047d36f15a'
+    const sodotokey = payload.keys.length ? payload.keys[0] : defaultkey
+    const sodotoBDO = await bdo.getBDO(uuid, hash, sodotokey)
     console.log({ sodotoBDO })
     return res.json(sodotoBDO)
   })
