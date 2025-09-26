@@ -49,13 +49,12 @@ const startServer = async function (params) {
 
     const payload = JSON.parse(atob(req.query.payload))
     payload.keys = payload.item.text.split(/\n/).filter(line => line.match(/^[0-9a-fA-F]+$/))
-    console.log({payload})
+    console.log({ payload })
 
     const secrets = `${argv.status}/secrets/sodoto`
-    const bdokeys = await fsp.readFile(`${secrets}/keys.json`,{encoding:'utf8'})
-      .then(file => JSON.parse(file))
+    const bdokeys = await fsp.readFile(`${secrets}/keys.json`, { encoding: 'utf8' }).then(file => JSON.parse(file))
     console.log(bdokeys)
-    const {privateKey,pubKey} = bdokeys.bdo
+    const { privateKey, pubKey } = bdokeys.bdo
 
     const hash = ``
     const newBDO = {}

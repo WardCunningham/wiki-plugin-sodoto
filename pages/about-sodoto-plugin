@@ -7,9 +7,47 @@
       "text": "Track the debts owed to \"pay it forward\" following the \"see one, do one, teach one\" practice."
     },
     {
+      "type": "paragraph",
+      "id": "a92db60b544aff59",
+      "text": "This is a pre-release of a work-in-progress. A properly configured SODOTO shows a menu of options."
+    },
+    {
+      "type": "paragraph",
+      "id": "6eb815a6b7c2d1e5",
+      "text": "The markup consists of two lines. The first describes the state encoded into the second line, a public key."
+    },
+    {
+      "type": "sodoto",
+      "id": "9a2e4042f820d88c",
+      "text": "Install and Test in Localhost Server\n02743978f8053d9da67ee004ba2b28d501400e7fee713a73094376465f8050e697",
+      "title": "Create a New Wiki Plugin",
+      "assessment": {
+        "see": true,
+        "do": true
+      },
+      "alias": "3d891776cd5be3a9"
+    },
+    {
+      "type": "paragraph",
+      "id": "33b11ceb9526c108",
+      "text": "Keys resolve as individual specific displays often with additional actions selected by button clicks."
+    },
+    {
+      "type": "paragraph",
+      "id": "1e3c0ebdcef0d6ea",
+      "text": "A missing or unrecognized key reports a blue dot. Think of this as a sad face where even facial features have been lost. "
+    },
+    {
       "type": "sodoto",
       "id": "3d891776cd5be3a9",
-      "text": "Create a new wiki plugin."
+      "text": "Create a New Wiki Plugin ",
+      "title": "About SODOTO Plugin",
+      "forward": []
+    },
+    {
+      "type": "paragraph",
+      "id": "3cdf0eaffea7f362",
+      "text": "There was a time we were happy to have gotten this far."
     }
   ],
   "journal": [
@@ -59,6 +97,140 @@
         "text": "Create a new wiki plugin."
       },
       "date": 1748542917834
+    },
+    {
+      "type": "edit",
+      "id": "3d891776cd5be3a9",
+      "item": {
+        "type": "sodoto",
+        "id": "3d891776cd5be3a9",
+        "text": "Create a New Wiki Plugin."
+      },
+      "date": 1748565794354
+    },
+    {
+      "type": "edit",
+      "id": "3d891776cd5be3a9",
+      "item": {
+        "type": "sodoto",
+        "id": "3d891776cd5be3a9",
+        "text": "Create a New Wiki Plugin"
+      },
+      "date": 1748565827568
+    },
+    {
+      "type": "edit",
+      "id": "3d891776cd5be3a9",
+      "item": {
+        "type": "sodoto",
+        "id": "3d891776cd5be3a9",
+        "text": "Create a New Wiki Plugin ",
+        "title": "About SODOTO Plugin",
+        "forward": []
+      },
+      "date": 1748566142532
+    },
+    {
+      "type": "fork",
+      "date": 1754583774041
+    },
+    {
+      "type": "add",
+      "id": "a92db60b544aff59",
+      "item": {
+        "type": "paragraph",
+        "id": "a92db60b544aff59",
+        "text": "This is a pre-release of a work-in-progress. A properly configured SODOTO shows a menu of options."
+      },
+      "after": "0434917af92c7eae",
+      "date": 1758844324108
+    },
+    {
+      "id": "9a2e4042f820d88c",
+      "type": "add",
+      "item": {
+        "type": "sodoto",
+        "id": "9a2e4042f820d88c",
+        "text": "Install and Test in Localhost Server\n02743978f8053d9da67ee004ba2b28d501400e7fee713a73094376465f8050e697",
+        "title": "Create a New Wiki Plugin",
+        "assessment": {
+          "see": true,
+          "do": true
+        },
+        "alias": "3d891776cd5be3a9"
+      },
+      "after": "a92db60b544aff59",
+      "attribution": {
+        "page": "Testing Better SODOTO"
+      },
+      "date": 1758844330977
+    },
+    {
+      "type": "add",
+      "id": "6eb815a6b7c2d1e5",
+      "item": {
+        "type": "paragraph",
+        "id": "6eb815a6b7c2d1e5",
+        "text": "The markup consists of two lines. The first describes the state encoded into the second line, a public key."
+      },
+      "after": "a92db60b544aff59",
+      "date": 1758844411592
+    },
+    {
+      "type": "add",
+      "id": "33b11ceb9526c108",
+      "item": {
+        "type": "paragraph",
+        "id": "33b11ceb9526c108",
+        "text": "Keys resolve as individual specific displays often with additional actions selected by button clicks."
+      },
+      "after": "6eb815a6b7c2d1e5",
+      "date": 1758844492731
+    },
+    {
+      "id": "33b11ceb9526c108",
+      "type": "move",
+      "order": [
+        "0434917af92c7eae",
+        "a92db60b544aff59",
+        "6eb815a6b7c2d1e5",
+        "9a2e4042f820d88c",
+        "33b11ceb9526c108",
+        "3d891776cd5be3a9"
+      ],
+      "date": 1758844495730
+    },
+    {
+      "type": "add",
+      "id": "1e3c0ebdcef0d6ea",
+      "item": {
+        "type": "paragraph",
+        "id": "1e3c0ebdcef0d6ea",
+        "text": "A missing or unrecognized key reports a blue dot. Think of this as a sad face where even facial features have been lost. "
+      },
+      "after": "33b11ceb9526c108",
+      "date": 1758844588006
+    },
+    {
+      "item": {
+        "type": "paragraph",
+        "id": "3cdf0eaffea7f362",
+        "text": "There was a time we were happy to have gotten this far."
+      },
+      "id": "3cdf0eaffea7f362",
+      "type": "add",
+      "after": "3d891776cd5be3a9",
+      "date": 1758844594915
+    },
+    {
+      "type": "edit",
+      "id": "3cdf0eaffea7f362",
+      "item": {
+        "type": "paragraph",
+        "id": "3cdf0eaffea7f362",
+        "text": "There was a time we were happy to have gotten this far."
+      },
+      "date": 1758844614763
     }
   ]
 }
